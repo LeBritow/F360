@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F360 - Página Inicial</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="brand">
+                <a href="home.html">F360</a>
+                <p>GESTÃO DE INVESTIMENTOS</p>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="login.html">iniciar Sessão</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <!-- Seção de busca -->
+        <section class="search-section">
+            <h1>Pesquise pelo ativo desejado</h1>
+            <div class="search-bar" style="position: relative;">
+                <input id="search-input" type="text" placeholder="Digite o nome do ativo" autocomplete="off">
+                <div class="suggestions"></div>
+            </div>                        
+        </section>
+
+        <!-- Seção de Rankings -->
+        <section class="rankings">
+            <h2>Rankings de Ações</h2>
+            <div class="cards">
+                <div class="card">
+                    <ul id="maiores-valores"></ul>
+                </div>
+                <div class="card">
+                    <ul id="earnings"></ul>
+                </div>
+                <div class="card">
+                    <ul id="receitas"></ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="recent-actions">
+            <h2>Ativos Recentemente Pesquisados</h2>
+            <div id="recentes-container" class="recentes-container">
+                <!-- Pesquisas recentes serão carregadas aqui -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 F360. Todos os direitos reservados.</p>
+    </footer>
+    <script src="js/home.js"></script>
+</body>
+</html>

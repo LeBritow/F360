@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão do Portfólio</title>
+    <link rel="stylesheet" href="css/portfolio.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="brand">
+                <a href="home.html">F360</a>
+                <p>GESTÃO DE INVESTIMENTOS</p>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <button class="home-button">Tela Inicial</button>
+                    <button id="logoutButton">Sair</button>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <!-- Coluna Esquerda -->
+        <section id="left-panel">
+            <!-- Formulário para adicionar/editar investimentos -->
+            <form id="investmentForm">
+                <input type="hidden" id="investmentId"> <!-- Campo oculto para edição -->
+                <label for="ticker">Ativo:</label>
+                <input type="text" id="ticker" placeholder="Ex: PETR4" required>
+                <label for="value">Valor:</label>
+                <input type="number" id="value" step="0.01" required>
+                <label for="quantity">Quantidade:</label>
+                <input type="number" id="quantity" required>
+                <button type="submit">Salvar</button>
+            </form>
+
+            <!-- Tabela para exibir os investimentos -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ativo</th>
+                        <th>Valor</th>
+                        <th>Quantidade</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="investments-container">
+                    <!-- Os investimentos serão carregados dinamicamente -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Coluna Direita (Gráfico) -->
+        <section id="chart-container">
+            <canvas id="investmentChart"></canvas>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 F360. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="/js/portfolio.js"></script>
+</body>
+</html>

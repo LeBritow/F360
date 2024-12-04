@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo da Ação</title>
+    <link rel="stylesheet" href="/css/stats.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="brand">
+                <a href="home.html">F360</a>
+                <p>GESTÃO DE INVESTIMENTOS</p>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="home.html">Página Inicial</a></li>
+                    <li><a href="login.html">Iniciar Sessão</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="action-summary" class="stock-container">
+            <!-- Cabeçalho com logo e título -->
+            <div class="stock-header">
+                <img id="action-logo" alt="Logo da Empresa">
+                <h2 id="action-title">Carregando...</h2>
+            </div>
+
+            <!-- Conteúdo com gráfico e informações -->
+            <div class="stock-content">
+                <!-- Gráfico -->
+                <div class="stock-graph">
+                    <canvas id="chart"></canvas>
+                </div>
+
+                <!-- Informações da ação -->
+                <div class="stock-info" id="action-details">
+                    <!-- Detalhes da ação serão carregados via JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 F360. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/stats.js"></script>
+</body>
+</html>

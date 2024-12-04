@@ -1,0 +1,446 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Garantir que o body e a página ocupem 100% da altura da tela */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* O conteúdo principal ocupará o espaço disponível */
+main {
+    flex: 1;
+}
+
+/* Geral */
+body {
+    background-color: #f3f4f6;
+    color: #333;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #004d61;
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.brand a {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.brand p {
+    font-size: 12px;
+    color: #cce7e8;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffd700;
+}
+
+/* Hero Section */
+.search-section {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #004d61, #00788c);
+    color: white;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.search-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-bar input {
+    width: 300px;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.search-bar button {
+    padding: 15px 20px;
+    background-color: #f95738;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #ff7043;
+    transform: scale(1.1);
+}
+
+/* Tags de busca */
+.quick-links {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #f0f0f0;
+}
+
+.quick-links a {
+    display: inline-block;
+    background: #005a70;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.quick-links a:hover {
+    background: #00788c;
+    transform: translateY(-3px);
+}
+
+/* Rankings Section */
+.rankings {
+    text-align: center;
+    margin: 50px 20px;
+}
+
+.rankings h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #004d61;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 1s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background-color: #004d61;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer a {
+    color: #ffd700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* Contêiner de Sugestões */
+.suggestions {
+    position: absolute;
+    top: 100%; /* Alinha diretamente abaixo do input */
+    left: 0;
+    width: 100%; /* Largura igual ao campo de busca */
+    max-width: 400px; /* Limita a largura máxima */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none; /* Inicialmente oculto */
+    padding: 5px 0;
+    font-family: 'Arial', sans-serif;
+    overflow-y: auto; /* Adiciona rolagem se necessário */
+}
+
+/* Centralizar o contêiner em relação ao input */
+.search-bar {
+    position: relative;
+    max-width: 400px; /* Certifica-se de que o input e o contêiner têm o mesmo tamanho */
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+/* Estilo dos Itens das Sugestões */
+.suggestions .suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.suggestions .suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestions .suggestion-item:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Estilo para Erro ou Sem Resultados */
+.suggestions .no-results,
+.suggestions .error {
+    padding: 10px 15px;
+    color: #666;
+    text-align: center;
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Card Geral */
+.rankings .cards {
+    display: flex;
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 20px; /* Espaçamento entre os cards */
+    flex-wrap: wrap; /* Permite que os cards se ajustem em múltiplas linhas, caso necessário */
+}
+
+.rankings .card, 
+.rankings .ranking-card {
+    width: 300px; /* Largura fixa para os cards */
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rankings .card:hover, 
+.rankings .ranking-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.rankings h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #004d61;
+}
+
+.rankings ul {
+    list-style: none; /* Remove os marcadores (bolinhas) */
+    padding: 0; /* Remove o espaçamento interno padrão */
+    margin: 0; /* Remove o espaçamento externo padrão */
+}
+
+.rankings li {
+    margin: 5px 0; /* Adiciona espaço entre os itens da lista */
+}
+
+.ranking-link {
+    text-decoration: none;
+    color: #004d61;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.ranking-link:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* Estilização da Lista de Dividendos */
+.dividendos-list {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaçamento entre itens */
+}
+
+.dividendo-item {
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dividendo-item strong {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.dividendo-item p {
+    font-size: 14px;
+    margin: 0;
+    color: #555;
+}
+
+.empresa-link {
+    text-decoration: none; /* Remove o sublinhado */
+    color: #007bff; /* Cor azul */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.empresa-link:hover {
+    color: #0056b3; /* Cor mais escura ao passar o mouse */
+}
+
+/* Seção de Ações Recentes */
+.recent-actions {
+    text-align: center;
+    margin: 30px 20px;
+}
+
+.recent-actions h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #004d61;
+}
+
+.recent-actions ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-actions li {
+    background: white;
+    margin: 10px auto;
+    padding: 10px 20px;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+}
+
+.recentes {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.recentes-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.recent-item {
+    background: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.recent-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - F360</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="header-title">F360</h1>
+        <p class="header-subtitle">Bem-vindo ao centro do investidor</p>
+    </header>
+
+    <main>
+        <!-- Container de login -->
+        <div class="login-container">
+            <h2 class="login-title">Acesse sua conta</h2>
+            <form id="login-form">
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <a href="/register.html" class="register-link">Não tem uma conta? Cadastre-se</a>
+            <button class="back-button">Voltar para a Tela Inicial</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 F360. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="js/auth.js" defer></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

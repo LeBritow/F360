@@ -1,0 +1,157 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Garantir que o body e a página ocupem 100% da altura da tela */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* O conteúdo principal ocupará o espaço disponível */
+main {
+    flex: 1;
+}
+
+/* Geral */
+body {
+    background-color: #f3f4f6;
+    color: #333;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #004d61;
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.brand a {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.brand p {
+    font-size: 12px;
+    color: #cce7e8;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffd700;
+}
+
+/* Container principal */
+.stock-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho com logo e título */
+.stock-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.stock-header img {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+.stock-header h2 {
+    font-size: 24px;
+    color: #004d61;
+}
+
+/* Conteúdo principal (gráfico e informações) */
+.stock-content {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/* Gráfico (lado esquerdo) */
+.stock-graph {
+    flex: 2; /* O gráfico ocupa mais espaço */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stock-graph canvas {
+    width: 100% !important;
+    max-width: 500px;
+    height: 400px !important; /* Altura fixa */
+}
+
+#action-details h3 {
+    text-align: center; /* Centraliza o texto */
+    font-size: 18px; /* Tamanho do texto */
+    margin-bottom: 30px; /* Espaço inferior */
+    color: #004d61; /* Cor do texto */
+    font-weight: bold; /* Negrito */
+}
+
+/* Informações da ação (lado direito) */
+.stock-info {
+    flex: 1; /* As informações ocupam menos espaço */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.stock-info p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Footer */
+footer {
+    background-color: #004d61;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 30px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
