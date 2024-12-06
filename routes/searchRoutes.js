@@ -24,7 +24,7 @@ router.get('/searchStocks', (req, res) => {
             console.error('Erro no banco de dados:', err);
             return res.status(500).json({ error: 'Erro no servidor' });
         }
-        res.json(rows);
+        res.status(200).json(rows);
     });
 });
 
@@ -33,7 +33,7 @@ router.get('/stock-history/:ticker', async (req, res) => {
 
     try {
         const dadosHistoricos = await buscarUltimos10DiasDoBanco(ticker);
-        res.json(dadosHistoricos);
+        res.status(200).json(dadosHistoricos);
     } catch (error) {
         console.error('Erro ao buscar dados históricos:', error.message);
         res.status(500).json({ error: 'Erro ao buscar dados históricos.' });

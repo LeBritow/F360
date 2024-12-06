@@ -33,7 +33,7 @@ app.get('/api/stock-info/:ticker', async (req, res) => {
         const dadosDoBanco = await buscarDadosDoBanco(ticker);
 
         if (dadosDoBanco) {
-            return res.json(dadosDoBanco);
+            return res.status(200).json(dadosDoBanco);
         }
 
         const response = await fetch(`https://brapi.dev/api/quote/${ticker}`, {
@@ -53,7 +53,7 @@ app.get('/api/stock-info/:ticker', async (req, res) => {
             throw new Error('Nenhum dado encontrado para o ticker na API da Brapi');
         }
 
-        res.json({
+        res.status(200).json({
             ticker: stockInfo.symbol,
             date: obterUltimaDataValida(),
             open_price: stockInfo.regularMarketOpen || 'N/A',
@@ -87,7 +87,7 @@ app.get('/api/ranking/maiores-valores', async (req, res) => {
             if (err) {
                 return res.status(500).json({ error: 'Erro interno do servidor ao consultar banco' });
             }
-            res.json(rows);
+            res.status(200).json(rows);
         });
     } catch (error) {
         res.status(500).json({ error: 'Erro interno do servidor' });
@@ -109,7 +109,7 @@ app.get('/api/ranking/earnings', async (req, res) => {
                 resolve(rows);
             });
         });
-        res.json(rows);
+        res.status(200).json(rows);
     } catch (error) {
         res.status(500).send('Erro interno no servidor');
     }
@@ -130,7 +130,7 @@ app.get('/api/ranking/receitas', async (req, res) => {
                 resolve(rows);
             });
         });
-        res.json(rows);
+        res.status(200).json(rows);
     } catch (error) {
         res.status(500).send('Erro interno no servidor');
     }

@@ -26,7 +26,7 @@ document.getElementById('login-form').addEventListener('submit', async (event) =
     }
 });
 
-const MAIN_SERVER_URL = "http://ec2-52-201-38-99.compute-1.amazonaws.com:3000";
+const MAIN_SERVER_URL = "http://loadbalancefinance-1732821327.us-east-1.elb.amazonaws.com";
 
 // Atualiza o redirecionamento do botão "Voltar para a Tela Inicial"
 document.addEventListener("DOMContentLoaded", () => {

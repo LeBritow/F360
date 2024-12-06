@@ -4,7 +4,7 @@ const suggestionsContainer = document.querySelector('.suggestions');
 const maioresValores = document.getElementById('maiores-valores');
 const earnings = document.getElementById('earnings');
 const receitas = document.getElementById('receitas');
-const AUTH_SERVER_URL = "http://ec2-52-201-38-99.compute-1.amazonaws.com:4000";
+const AUTH_SERVER_URL = "http://loadbalancefinance-1732821327.us-east-1.elb.amazonaws.com:81";
 
 // Atualiza o link do botão "iniciar Sessão" dinamicamente
 document.addEventListener("DOMContentLoaded", () => {
