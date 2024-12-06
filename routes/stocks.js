@@ -77,7 +77,7 @@ router.get('/api/ranking/earnings', async (req, res) => {
 });
 
 // Rota para ranking das ações com maior volume (receita)
-route.get('/api/ranking/receitas', async (req, res) => {
+router.get('/api/ranking/receitas', async (req, res) => {
     try {
         const resultado = await StockHistory.receitas()
 

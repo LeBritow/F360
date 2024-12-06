@@ -1,8 +1,8 @@
 import express from 'express';
 
 // tabelas 
-import StockHistory from '../modelos/StockHistory.js';
-import Stocks from '../modelos/Stocks.js';
+import StockHistory from '../modelos/StockHistory';
+import Stocks from '../modelos/Stocks';
 
 const router = express.Router();
 
