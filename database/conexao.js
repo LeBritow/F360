@@ -1,7 +1,7 @@
 import mysql from "mysql";
 
 const conexao = mysql.createConnection({
-    host:"localhost",
+    host:"finance.c32gek62eawj.us-east-1.rds.amazonaws.com",
     port:3306,
     user:admin,
     password:"finance360",
