@@ -25,7 +25,7 @@ const app = express();
 
 // Configuração de paths (para compatibilidade com ESModules)
 const __filename = fileURLToPath(import.meta.url);
-console.log(__filename);
+
 
 const __dirname = path.dirname(__filename);
 
