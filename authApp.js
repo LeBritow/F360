@@ -2,7 +2,6 @@ import express from 'express';
 import session from 'express-session';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import db from './database/db.js';
 import authRoutes from './routes/authRoutes.js';
 import investmentRoutes from './routes/investmentRoutes.js';
 import cors from 'cors';

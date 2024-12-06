@@ -1,45 +1,47 @@
 import express from 'express';
 import db from '../database/db.js';
+import User from "../modelos/User.js";
+
 
 const router = express.Router();
 
 // Registro de usuários
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
     const { email, password } = req.body;
 
-    // Verifica se o email já existe
-    db.get(`SELECT * FROM users WHERE email = ?`, [email], (err, existingUser) => {
-        if (err) return res.status(500).json({ error: 'Erro no servidor ao verificar o e-mail.' });
-        if (existingUser) return res.status(400).json({ error: 'E-mail já registrado.' });
-
-        // Insere o novo usuário
-        db.run(`INSERT INTO users (email, password) VALUES (?, ?)`, [email, password], (err) => {
-            if (err) return res.status(500).json({ error: 'Erro ao registrar usuário.' });
-            res.status(201).json({ message: 'Usuário registrado com sucesso!' });
-        });
-    });
+    try {
+        const response = await Users.registrar(email, password);
+        res.status(response.status).json({ message: response.message });
+    } catch (error) {
+        console.error('Erro ao registrar usuário:', error);
+        res.status(error.status || 500).json({ error: error.message || 'Erro no servidor' });
+    }
 });
 
+
 // Login de usuários
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
-    // Aqui você deve verificar se o usuário existe no banco
-    db.get('SELECT * FROM users WHERE email = ?', [email], (err, user) => {
-        if (err) {
-            return res.status(500).json({ error: 'Erro ao consultar o banco.' });
+    try{
+         // Aqui você deve verificar se o usuário existe no banco
+         const user = await User.login(email)
+         if (!user || user.password !== password) {
+            res.status(401).json({ error: 'Credenciais inválidas.' });
+        }else{
+            // Armazena o ID do usuário na sessão
+            req.session.userId = user.id;
+            console.log('ID do usuário armazenado na sessão:', user.id); // Verificação no log
+
+            res.status(200).json({ message: 'Login bem-sucedido!' });
         }
+    }catch(error){
+        return res.status(500).json({ error: 'Erro ao consultar o banco.' });
+    }
 
-        if (!user || user.password !== password) {
-            return res.status(401).json({ error: 'Credenciais inválidas.' });
-        }
 
-        // Armazena o ID do usuário na sessão
-        req.session.userId = user.id;
-        console.log('ID do usuário armazenado na sessão:', user.id); // Verificação no log
+   
 
-        res.status(200).json({ message: 'Login bem-sucedido!' });
-    });
 });
 
 // Rota para logout

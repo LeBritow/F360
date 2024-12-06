@@ -1,39 +1,41 @@
 import express from 'express';
-import sqlite3 from 'sqlite3';
-import { buscarUltimos10DiasDoBanco } from '../database/dataService.js';
+
+// tabelas 
+import StockHistory from '../modelos/StockHistory.js';
+import Stocks from '../modelos/Stocks.js';
 
 const router = express.Router();
-const db = new sqlite3.Database('./database/db.db');
 
-router.get('/searchStocks', (req, res) => {
+
+router.get('/searchStocks', async (req, res) => {
     const query = req.query.q;
     if (!query) {
-        return res.status(400).json({ error: 'Query string vazia' });
+        return res.status(400).json({ error: 'A query string não pode estar vazia.' });
     }
 
-    const sql = `
-        SELECT ticker, name
-        FROM stocks
-        WHERE ticker LIKE ? OR name LIKE ?
-        LIMIT 10
-    `;
-    const params = [`%${query}%`, `%${query}%`];
+    try{
+        const params = [`%${query}%`, `%${query}%`];
 
-    db.all(sql, params, (err, rows) => {
-        if (err) {
-            console.error('Erro no banco de dados:', err);
-            return res.status(500).json({ error: 'Erro no servidor' });
-        }
-        res.json(rows);
-    });
+        const  resultado = await Stocks.procurarStocks(params)
+        res.status(200).json(resultado)
+    }catch(error){
+        console.error('Erro no banco de dados:', error);
+        res.status(500).json({erro:'Erro no servidor'})
+    }
+
+
+
+
+  
 });
 
 router.get('/stock-history/:ticker', async (req, res) => {
     const { ticker } = req.params;
 
     try {
-        const dadosHistoricos = await buscarUltimos10DiasDoBanco(ticker);
-        res.json(dadosHistoricos);
+        const dadosHistoricos = await StockHistory.buscarUltimos10DiasDoBanco(ticker)
+     
+        res.status(200).json(dadosHistoricos);
     } catch (error) {
         console.error('Erro ao buscar dados históricos:', error.message);
         res.status(500).json({ error: 'Erro ao buscar dados históricos.' });
